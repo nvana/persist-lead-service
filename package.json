@@ -1,0 +1,23 @@
+{
+  "name": "persist-lead-service",
+  "version": "1.0.0",
+  "description": "The service responsible for persisting the operations against lead entities",
+  "main": "persistLeadServer.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MinimalNoise/persist-lead-service.git"
+  },
+  "keywords": [
+    "vente",
+    "persist-lead"
+  ],
+  "author": "Mayas Haddad",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MinimalNoise/persist-lead-service/issues"
+  },
+  "homepage": "https://github.com/MinimalNoise/persist-lead-service"
+}
