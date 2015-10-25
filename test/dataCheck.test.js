@@ -2,6 +2,17 @@ var dataCheck = require('../lib/dataCheck.js')
 var assert = require('assert')
 
 module.exports = [
+	
+	function() {
+		assert.strictEqual(
+			dataCheck.checkReqHasFields(
+					{}, []
+			).length,
+			0,
+			'no mandatory field provided'
+		)
+	},
+	
 	function() {
 		assert.strictEqual(
 			dataCheck.checkReqHasFields(
