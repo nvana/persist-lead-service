@@ -4,7 +4,7 @@
   "description": "The service responsible for persisting the operations against lead entities",
   "main": "persistLeadServer.js",
   "scripts": {
-    "test": "npm test"
+    "test": "node test/perform.test.js"
   },
   "repository": {
     "type": "git",
