@@ -41,5 +41,15 @@ module.exports = [
 			['lastname'],
 			'lastname mandatory, lastname not provided => must return [\'lastname\'] meaning that lastname mandatory field\'s missing'
 		)
+	},
+	
+	function() {
+		assert.deepEqual(
+			dataCheck.checkReqHasFields(
+					{firstname: undefined}, ['firstname', 'lastname']
+			),
+			['firstname', 'lastname'],
+			'lastname mandatory, lastname not provided => must return [\'lastname\'] meaning that lastname mandatory field\'s missing'
+		)
 	}
 ]
