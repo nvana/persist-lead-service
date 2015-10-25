@@ -1,0 +1,10 @@
+{
+	firstname: String,
+	lastname: String,
+	email: String,
+	company: String,
+	address: String,
+	sideNote: String,
+	creationDate: Date,
+	updateDate: Date
+}
