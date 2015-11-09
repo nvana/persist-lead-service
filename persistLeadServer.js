@@ -36,7 +36,10 @@ app.post('/add-new-lead', function(req, res) {
 				res.json({success: true, message: 'Correctly saved the new lead'})
 		})
 	} else {
-		res.json({success: false, message: missingMandatoryFields + ': these fields are mandatory' })
+		res.json({
+			success: false, 
+			message: missingMandatoryFields + ': these fields are mandatory',
+			statusCode: config.statusCodes.mandatoryFieldsMissing })
 	}
 })
 

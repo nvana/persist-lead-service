@@ -2,5 +2,9 @@
 	"databaseURL": "localhost",
 	"databaseName": "leads",
 	"databaseUsername": "",
-	"databasePassword": ""
+	"databasePassword": "",
+	"statusCodes": {
+		"mandatoryFieldsMissing": "MANDATORY_FIELDS_MISSING"
+	}
+	
 }
