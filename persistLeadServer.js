@@ -4,7 +4,10 @@ var config = require('./config.json')
 var leadModel = require('./model/Lead')
 var dataCheck = require('./lib/dataCheck.js')
 var mongoose = require('mongoose')
-var Lead = mongoose.model('lead', leadModel);
+var LeadSchema = new mongoose.Schema(leadModel)
+LeadSchema.plugin(require('mongoose-unique-validator'))
+var Lead = mongoose.model('lead', LeadSchema)
+
 mongoose.connect('mongodb://' + config.databaseURL + '/' + config.databaseName)
 var app = express()
 // parse text/json
@@ -32,8 +35,19 @@ app.post('/add-new-lead', function(req, res) {
 		
 		var newLead = new Lead(newLeadAttributes);
 		newLead.save(function (err) {
-			err === true ? res.json({success: false, message: 'Sorry, something went couldn\'t save the new lead' }) :
+			if(err) {
+				if(err.name === 'ValidationError') {
+					res.json({
+						success: false, 
+						message: 'Another Lead with the same ' +  Object.keys(err.errors)[0] + ' already exists',
+						statusCode: config.statusCodes.duplicateEntry[Object.keys(err.errors)[0]]
+					})
+				} else {
+					res.json({success: false, message: 'Sorry, something went couldn\'t save the new lead' })	
+				}
+			} else {
 				res.json({success: true, message: 'Correctly saved the new lead'})
+			}
 		})
 	} else {
 		res.json({

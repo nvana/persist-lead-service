@@ -2,11 +2,11 @@
 	"title": "String",
 	"firstname": "String",
 	"lastname": "String",
-	"email": "String",
+	"email": { "type": "String", "index": { "unique": true } },
 	"birthday": "String",
 	"company": "String",
 	"budget": "String",
-	"celPhone": "String",
+	"celPhone": { "type": "String", "index": { "unique": true } },
 	"officePhone": "String",
 	"address": {
 		"street": "String",
