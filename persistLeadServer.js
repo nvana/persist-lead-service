@@ -12,7 +12,7 @@ app.use(bodyParser.json())
 
 app.post('/add-new-lead', function(req, res) {
 	var missingMandatoryFields = dataCheck.checkReqHasFields(req.body, 
-	['title' , 'firstname', 'lastname', 'email', 'company', 'address', 'complementaryNote'])
+	['title' , 'firstname', 'lastname', 'email', 'company', {'address' : ['street', 'zipCode', 'city', 'country'] }, 'complementaryNote'], '')
 	if(missingMandatoryFields.length === 0) {
 		var newLeadAttributes = {
 			title: req.body.title,
