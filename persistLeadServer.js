@@ -57,4 +57,22 @@ app.post('/add-new-lead', function(req, res) {
 	}
 })
 
+app.post('/update-lead', function(req, res) {
+	Lead.update({"email": req.body.email}, req.body, {}, function(err, numAffected) {
+		if(err) {
+			res.json({success: false, message: 'Sorry, something went couldn\'t save the new lead'})
+		} else {
+			if(numAffected.nModified === 0) {
+				res.json({
+					success: false, 
+					message: 'Nothing new',
+					statusCode: config.statusCodes.noFieldUpdated
+				})
+			}
+			if(numAffected.nModified === 1) {
+				res.json({success: true, message: 'Correctly updated the lead'})
+			}
+		}
+	})
+})
 app.listen(3000)

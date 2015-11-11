@@ -8,7 +8,8 @@
 		"duplicateEntry": {
 			"email": "DUPLICATE_EMAIL_ENTRY",
 			"celPhone": "DUPLICATE_CELPHONE_ENTRY"
-		}
+		},
+		"noFieldUpdated": "NO_FIELD_UPDATED"
 	}
 	
 }
